@@ -1,0 +1,44 @@
+DEFINE
+	MEASURE 'TablaDeMedidas'[Cantidad registros] = COUNTROWS('TablaHechos')
+	MEASURE 'TablaDeMedidas'[Distancia promedio]=AVERAGE(TablaHechos[Distancia_de_Transporte__KM_])
+	
+EVALUATE
+TOPN(
+    10,
+    SUMMARIZECOLUMNS(
+        TablaHechos[RutaUnica],
+        "Cantidad de rutas", [Cantidad registros],
+        "Distancia promedio", [Distancia promedio]
+    ),
+    [Cantidad de rutas], DESC
+)
+
+
+// respuesta numero 
+DEFINE
+	MEASURE 'TablaDeMedidas'[Tiempos de entrega] = AVERAGEX(
+			TablaHechos,
+			DATEDIFF(
+				TablaHechos[Fecha_de_Inicio_del_Viaje],
+				TablaHechos[Fecha_LLegada],
+				HOUR))
+			
+evaluate
+TOPN(
+    10,
+summarizecolumns(TablaHechos[RutaUnica],
+"Tiempos de entrega",[Tiempos de entrega]),
+[Tiempos de entrega],DESC)
+//Pregunta  5. Tendencias de los proveedores: ¿Qué proveedores manejan la mayoría de los envíos y algunos tienen mayores retrasos?
+
+DEFINE MEASURE 'TablaDeMedidas'[Proveedores con llegadas tarde]=CALCULATE(COUNTROWS(TablaHechos),TablaHechos[A_Tiempo]="No")
+
+
+			
+evaluate
+TOPN(
+    10,
+summarizecolumns(DimensionProveedor[Nombre_del_Proveedor],
+"Cantidad de envios",[Cantidad registros],
+"Proveedores con llegadas tarde",[Proveedores con llegadas tarde]),
+[Proveedores con llegadas tarde],DESC)
