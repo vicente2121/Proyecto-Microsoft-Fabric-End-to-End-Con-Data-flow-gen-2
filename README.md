@@ -115,5 +115,9 @@ Se utilizaron fórmulas DAX para calcular tiempos de entrega, identificar provee
 [🔗 LinkedIn](www.linkedin.com/in/vicente-antonio-juan-magallanes-ba7ab4127) | [📧 Email](vicenteajm@hotmail.com) | [🎓 Certificación Microsoft](https://learn.microsoft.com/es-es/users/vicentejuanmagallanes-2480/credentials/5c1cf13ae14b5a65?ref=https%3A%2F%2Fwww.linkedin.com%2F)
 
 ---
+## ▶️ Canal de YouTube
 
+Te invito a ver el recorrido completo de este proyecto y otros análisis en mi canal:  
+[🎥 YouTube - Vicente Magallanes]([https://www.youtube.com/@tu-canal-aqui](https://youtube.com/@vicenteantoniomagallanesju5289?si=H6bAj71YUJGGok23))  
+> *(Reemplaza el link por tu canal real)*
 > ⭐ Si este proyecto te pareció interesante, ¡agrégale una estrella y sígueme para más contenido de análisis de datos con Power BI y Microsoft Fabric!
