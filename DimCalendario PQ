@@ -1,0 +1,19 @@
+let
+  Consulta = List.Dates( 
+
+    #date(2019, 11, 29),  
+
+    Duration.Days(#date(2020, 12, 03) - #date(2019, 11, 29)) + 1,  
+
+    #duration(1, 0, 0, 0) 
+
+),
+  #"Convertido en tabla" = Table.FromList(Consulta, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+  #"Tipo de columna cambiado" = Table.TransformColumnTypes(#"Convertido en tabla", {{"Column1", type date}}),
+  #"Columnas con nombre cambiado" = Table.RenameColumns(#"Tipo de columna cambiado", {{"Column1", "Fecha"}}),
+  #"Año insertado" = Table.AddColumn(#"Columnas con nombre cambiado", "Año", each Date.Year([Fecha]), type nullable number),
+  #"Nombre del mes insertado" = Table.AddColumn(#"Año insertado", "Nombre del mes", each Date.MonthName([Fecha]), type nullable text),
+  #"Semana del año insertada" = Table.AddColumn(#"Nombre del mes insertado", "Semana del año", each Date.WeekOfYear([Fecha]), type nullable number),
+  #"Tipo de columna cambiado 1" = Table.TransformColumnTypes(#"Semana del año insertada", {{"Año", Int64.Type}, {"Semana del año", Int64.Type}})
+in
+  #"Tipo de columna cambiado 1"
