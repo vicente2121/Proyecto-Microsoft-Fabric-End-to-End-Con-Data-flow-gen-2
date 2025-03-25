@@ -36,7 +36,7 @@ En esta etapa se cargan los datos **sin transformaciones**, tal como vienen del 
 - Auditar la calidad de datos futura
 
 📸 **Imagen de artefactos creados en Fabric**  
-![Artefactos creados](Artefactoscreados.png)
+![Artefactos creados](Artefactooscreados.png)
 
 ---
 
