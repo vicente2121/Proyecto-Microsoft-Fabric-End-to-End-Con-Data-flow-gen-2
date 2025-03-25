@@ -112,7 +112,7 @@ Se utilizaron fórmulas DAX para calcular tiempos de entrega, identificar provee
 ## 👤 Autor
 
 **Vicente Antonio Juan Magallanes**  
-[🔗 LinkedIn](#) | [📧 Email](#) | [🎓 Certificación Microsoft](#)
+[🔗 LinkedIn](www.linkedin.com/in/vicente-antonio-juan-magallanes-ba7ab4127) | [📧 Email](vicenteajm@hotmail.com) | [🎓 Certificación Microsoft](https://learn.microsoft.com/es-es/users/vicentejuanmagallanes-2480/credentials/5c1cf13ae14b5a65?ref=https%3A%2F%2Fwww.linkedin.com%2F)
 
 ---
 
