@@ -1,34 +1,119 @@
-# Proyecto de Análisis de Transporte y Logística
+# 🚚 Proyecto de Análisis de Transporte y Logística con Microsoft Fabric y Power BI
 
-Este proyecto tiene como objetivo analizar datos de transporte y logística utilizando la plataforma **Microsoft Fabric** y herramientas como **Power BI**, **Dataflows**, y **Power Query**, siguiendo una arquitectura de datos moderna con capas (Bronce, Plata y Oro).
-
-## 🔧 Herramientas Utilizadas
-
-- Microsoft Fabric
-- Power BI
-- Power Query
-- Excel
-- DAX
-
-## 📁 Estructura del Proyecto
-
-1. **Capa Bronce**: Ingesta de datos sin transformación, datos inmutables.
-2. **Capa Plata**: Limpieza de duplicados, nulos y normalización de columnas.
-3. **Capa Oro**: Modelo dimensional con tablas de hechos y dimensiones.
-4. **Modelo Semántico**: Creación del modelo en Direct Lake para visualización en Power BI.
-
-## 📊 Dataset
-
-El dataset utilizado proviene del *Reto del Día* y contiene información de reservas de transporte, ubicaciones, fechas y tipos de envío.
-
-## 🎯 Objetivo
-
-Desarrollar un pipeline de datos desde la ingesta hasta la visualización final para entender patrones logísticos, optimizar rutas y detectar ineficiencias en el transporte.
-
-## 👤 Autor
-
-Vicente Antonio Juan Magallanes
+Este proyecto fue desarrollado como parte del reto **FP20**, con el objetivo de construir un flujo de análisis de datos **end-to-end** utilizando la plataforma **Microsoft Fabric**, desde la ingesta hasta la visualización con **Power BI**, pasando por un modelo dimensional robusto.
 
 ---
 
-¡Gracias por visitar este repositorio! Si te interesa el análisis de datos con Microsoft Fabric, no dudes en seguirme o dejar una estrella ⭐ en el proyecto.
+## 🔧 Herramientas Utilizadas
+
+- Microsoft Fabric (Dataflow Gen2, Lakehouse, Semantic Model)
+- Power BI
+- Power Query
+- DAX
+- Excel
+
+---
+
+## 🎯 Objetivo General
+
+Analizar rutas, distancias, tiempos de entrega y proveedores con demoras, utilizando un enfoque de arquitectura moderna basada en capas **Bronce, Plata y Oro**, y generar visualizaciones que permitan tomar decisiones logísticas basadas en datos.
+
+---
+
+## 🧱 Arquitectura por Capas
+
+### 🟫 Capa Bronce: Datos Crudos
+
+En esta etapa se cargan los datos **sin transformaciones**, tal como vienen del archivo fuente. Esta capa sirve como respaldo histórico e inmutable, garantizando trazabilidad.
+
+🔍 Se almacenan:
+- Reservas de envío
+- Información de rutas
+- Fechas y horarios
+
+📌 **Propósito**:
+- Guardar la fuente original
+- Auditar la calidad de datos futura
+
+📸 **Imagen de artefactos creados en Fabric**  
+![Artefactos creados](Artefactoscreados.png)
+
+---
+
+### 🪙 Capa Plata: Datos Limpiados y Normalizados
+
+Aquí se realiza la **transformación de datos**, limpiando duplicados, valores nulos y ajustando nombres de columnas. También se ajusta la estructura para facilitar el modelado.
+
+📌 **Incluye**:
+- Normalización de nombres
+- Eliminación de datos inconsistentes
+- Conversión de tipos
+- Unión y relación de datasets
+
+📸 **Visualización del Dataflow**  
+![Flujo de transformación](DataFlow.png)
+
+---
+
+### 🥇 Capa Oro: Modelo Dimensional y Métricas
+
+Se construye el **modelo dimensional**, separando tablas de hechos y dimensiones. Esta capa está optimizada para la consulta y análisis en Power BI.
+
+📌 **Se modelan**:
+- Hechos de transporte (distancia, tiempos)
+- Dimensiones: Proveedor, Cliente, Transporte, Origen, Destino, Material, Calendario
+
+📸 **Modelo Semántico Relacional**  
+![Modelo Semántico](ModeloSemantico.png)
+
+---
+
+## 📊 Visualización de Datos
+
+En Power BI se construyó un panel interactivo con indicadores clave como:
+
+- Total de registros
+- Proveedores con más entregas tardías
+- Distancia total recorrida
+- Rutas frecuentes
+
+📸 **Dashboard Power BI**  
+![Informe](Informe.png)
+
+---
+
+## 🧠 Medidas DAX
+
+Se utilizaron fórmulas DAX para calcular tiempos de entrega, identificar proveedores con demoras y analizar distancias promedio por ruta.
+
+📸 **Medidas DAX en Power BI**  
+![Medidas Creadas](MedidasCreadas.png)
+
+---
+
+## 🔄 Flujo End-to-End
+
+1. Carga de dataset original en Lakehouse (Capa Bronce)
+2. Transformaciones en Dataflow Gen2 (Capa Plata)
+3. Modelado dimensional (Capa Oro)
+4. Publicación del modelo semántico
+5. Diseño de dashboard en Power BI
+
+---
+
+## 📌 Conclusiones
+
+- El modelo permitió identificar rutas críticas y proveedores con mayor incidencia en retrasos.
+- Se aprovechó todo el ecosistema de Microsoft Fabric de manera integrada.
+- La arquitectura en capas garantiza escalabilidad y gobernanza de datos.
+
+---
+
+## 👤 Autor
+
+**Vicente Antonio Juan Magallanes**  
+[🔗 LinkedIn](#) | [📧 Email](#) | [🎓 Certificación Microsoft](#)
+
+---
+
+> ⭐ Si este proyecto te pareció interesante, ¡agrégale una estrella y sígueme para más contenido de análisis de datos con Power BI y Microsoft Fabric!
